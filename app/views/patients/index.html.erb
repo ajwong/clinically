@@ -1,0 +1,27 @@
+<h1><%= pluralize(@patients.size, 'Patient') %></h1>
+<ul id="patients">
+<% @patients.each do |patient| %>
+  <li>
+  <article class="patient">
+    <header>
+      <%= image_for(patient) %>
+      <h2><%= link_to format_patient_name(patient), patient_path(patient) %></h2>
+    </header>
+    <table>
+      <tr>
+        <th>DOB</th>
+        <td><%= patient.born_on %></td>
+      </tr>
+      <tr>
+        <th>URI</th>
+        <td><%= patient.uri %></td>
+      </tr>
+      <tr>
+        <th>History</th>
+        <td><%= patient.description %></td>
+      </tr>
+    </table>
+  </article>
+</li>
+<% end %>
+</ul>

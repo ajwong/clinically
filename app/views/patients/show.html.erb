@@ -1,0 +1,35 @@
+<article id="patient" class="patient">
+  <header>
+    <%= image_for(@patient)%>
+    <h1><%= format_patient_name(@patient) %></h1>
+  </header>
+  <h3>DOB</h3>
+  <p>
+    <%= @patient.born_on %>
+  </p>
+  <h3>URI</h3>
+  <p>
+    <%= @patient.uri %>
+  </p>
+  <h3>Sex</h3>
+  <p>
+    <%= @patient.sex %>
+  </p>
+  <h3>Image File Name</h3>
+  <p>
+    <%= @patient.image_file_name %><br />
+    
+  </p>
+  <h3>Description</h3>
+  <p>
+    <%= @patient.description %>
+  </p>
+  <h3><%= link_to "Jobs", patient_jobs_path(@patient) %></h3>
+  <nav>
+    <%= link_to "Edit", edit_patient_path(@patient), class: 'button' %>
+    <%= link_to "Delete", @patient, class: 'button', method: :delete, data: { confirm: 'Are you sure?' } %>
+  </nav>
+  <footer>
+    <%= link_to "Create Job", new_patient_job_path(@patient), class: 'button ok review' %>
+  </footer>
+</article>

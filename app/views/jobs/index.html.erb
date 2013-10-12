@@ -1,0 +1,10 @@
+<h1>Jobs for <%= link_to format_patient_name(@patient), @patient %></h1>
+<ul id="jobs">
+<% @jobs.each do |job| %>
+  <li> <%= job.category + ": " + job.description + " (due" + job.deadline_at.to_s + ")" %>
+  </li>
+<% end %>
+</ul>
+  <footer>
+    <%= link_to "Create Job", new_patient_job_path(@patient), class: 'button ok review' %>
+  </footer>

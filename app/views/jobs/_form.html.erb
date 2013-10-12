@@ -1,0 +1,22 @@
+<%= form_for([@patient, @job]) do |f| %>
+<%= render 'shared/errors', object: @job %>
+	<fieldset>
+		<ol>
+			<li class="required">
+				<%= f.label :category %>
+				<%= f.select :category, Job::CATEGORIES, prompt: "Pick one", autofocus: true %>
+			</li>
+			<li class="required">
+				<%= f.label :description %>
+				<%= f.text_area :description, cols: 80%>
+			</li>
+			<li class="required">
+				<%= f.label :deadline_at %>
+				<%= f.datetime_select :deadline_at, default: 7.days.from_now.change({:hour => 12, :min =>0, :sec =>0}) %>
+			</li>
+		</ol>
+		<p> <%= f.submit 'Create Job'%>
+			<%= link_to "Cancel", patient_jobs_path(@patient), class: 'button' %> 
+		</p>
+	</fieldset>
+<% end %>

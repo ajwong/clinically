@@ -1,0 +1,41 @@
+<%= form_for(@patient) do |f| %>
+	<%= render "shared/errors", object: @patient %>
+	<fieldset>
+		<ol>
+			<li class="required">
+				<%= f.label :last_name %><br />
+				<%= f.text_field :last_name, autofocus: true %>
+			</li>
+			<li class="required">
+				<%= f.label :given_name %><br />
+				<%= f.text_field :given_name %>
+			</li>
+			<li class="required">
+				<%= f.label :uri %><br />
+				<%= f.text_field :uri %>
+			</li>
+			<li class="required">
+				<%= f.label :born_on %>
+				<%= f.date_select :born_on %>
+			</li>
+			<li class="required">
+				<%= f.radio_button :sex, 'F', id: "Female"%>
+				<%= f.label :sex, 'Female'%>
+				<%= f.radio_button :sex, 'M', id: "Male"%>
+				<%= f.label :sex, 'Male'%>
+			</li>
+			<li class="required">
+				<%= f.label :image_file_name %>
+				<%= f.text_field :image_file_name, placeholder: "GIF, JPG, or PNG file name" %>
+			</li>
+			<li class="required">
+				<%= f.label :description %><br />
+				<%= f.text_area :description, cols: 40, rows: 7 %>
+			</li>
+		</ol>
+		<p>
+			<%= f.submit %> 
+			<%= link_to "Cancel", patients_path, class: 'button' %> 
+		</p>
+	</fieldset>
+<% end %>
